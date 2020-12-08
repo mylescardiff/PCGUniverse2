@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc032d9bf2274f947853f0e9b2299767, type: 3}
+  m_Name: Mercury Settings
+  m_EditorClassIdentifier: 
+  m_planetName: Mercury
+  m_planetType: 0
+  m_radius: 28.64766
+  m_hasLiquidOcean: 0
+  m_hasLife: 0
+  m_biomes:
+  - m_gradient:
+      serializedVersion: 2
+      key0: {r: 0.5188679, g: 0.5188679, b: 0.5188679, a: 1}
+      key1: {r: 0.4716981, g: 0.4716981, b: 0.4716981, a: 1}
+      key2: {r: 0.4433962, g: 0.4433962, b: 0.4433962, a: 1}
+      key3: {r: 0.5188679, g: 0.5188679, b: 0.5188679, a: 1}
+      key4: {r: 0.5188679, g: 0.5188679, b: 0.5188679, a: 1}
+      key5: {r: 0, g: 0, b: 0, a: 0}
+      key6: {r: 0, g: 0, b: 0, a: 0}
+      key7: {r: 0, g: 0, b: 0, a: 0}
+      ctime0: 0
+      ctime1: 13107
+      ctime2: 26214
+      ctime3: 39321
+      ctime4: 52428
+      ctime5: 0
+      ctime6: 0
+      ctime7: 0
+      atime0: 0
+      atime1: 65535
+      atime2: 0
+      atime3: 0
+      atime4: 0
+      atime5: 0
+      atime6: 0
+      atime7: 0
+      m_Mode: 0
+      m_NumColorKeys: 5
+      m_NumAlphaKeys: 2
+    startHeight: 0
+  m_biomeNoiseSettings: {fileID: 11400000, guid: d4c8ee228420ed84eba67ae7270436d0,
+    type: 2}
+  m_biomeNoiseOffset: 0
+  m_biomeNoiseStrength: 0.42456806
+  m_biomeBlendAmount: 0.5
+  m_noiseLayers:
+  - {fileID: 11400000, guid: b540d2dfe1731234fa804c44942be23a, type: 2}
+  - {fileID: 11400000, guid: d4c8ee228420ed84eba67ae7270436d0, type: 2}
+  m_cloudThickness: 0
+  m_thickAtmosphere: 0
+  m_atmoColor: {r: 1, g: 1, b: 1, a: 0}

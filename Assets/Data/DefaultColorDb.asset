@@ -1,0 +1,466 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e42226d5fc8c6fc4385bd8d23f56bc40, type: 3}
+  m_Name: DefaultColorDb
+  m_EditorClassIdentifier: 
+  m_elements:
+  - m_name: Hydrogen
+    m_atomicNumber: 1
+    m_symbol: H
+    m_color: {r: 1, g: 1, b: 1, a: 1}
+    m_weight: 0.99
+    m_type: 2
+  - m_name: Helium
+    m_atomicNumber: 2
+    m_symbol: He
+    m_color: {r: 0.8509804, g: 1, b: 1, a: 1}
+    m_weight: 0.98
+    m_type: 2
+  - m_name: Lithium
+    m_atomicNumber: 3
+    m_symbol: Li
+    m_color: {r: 0.8, g: 0.5019608, b: 1, a: 1}
+    m_weight: 0.97
+    m_type: 0
+  - m_name: Berilium
+    m_atomicNumber: 4
+    m_symbol: Be
+    m_color: {r: 0.8431558, g: 1, b: 0.3443396, a: 1}
+    m_weight: 0.96
+    m_type: 0
+  - m_name: Boron
+    m_atomicNumber: 5
+    m_symbol: B
+    m_color: {r: 1, g: 0.70980394, b: 0.70980394, a: 1}
+    m_weight: 0.94
+    m_type: 0
+  - m_name: Carbon
+    m_atomicNumber: 6
+    m_symbol: C
+    m_color: {r: 0.5647059, g: 0.5647059, b: 0.5647059, a: 1}
+    m_weight: 0.93
+    m_type: 0
+  - m_name: Nitrogen
+    m_atomicNumber: 7
+    m_symbol: N
+    m_color: {r: 0.8207547, g: 0.8207547, b: 0.8207547, a: 1}
+    m_weight: 0.92
+    m_type: 2
+  - m_name: Oxygen
+    m_atomicNumber: 8
+    m_symbol: O
+    m_color: {r: 0.764151, g: 0.764151, b: 0.764151, a: 1}
+    m_weight: 0.91
+    m_type: 2
+  - m_name: Florine
+    m_atomicNumber: 9
+    m_symbol: F
+    m_color: {r: 0.31372556, g: 0.4929676, b: 0.8784314, a: 1}
+    m_weight: 0.9
+    m_type: 2
+  - m_name: Neon
+    m_atomicNumber: 10
+    m_symbol: Ne
+    m_color: {r: 0.7019608, g: 0.9607843, b: 0.7160177, a: 1}
+    m_weight: 0.89
+    m_type: 2
+  - m_name: Sodium
+    m_atomicNumber: 11
+    m_symbol: Na
+    m_color: {r: 0.67058825, g: 0.36078432, b: 0.9490196, a: 1}
+    m_weight: 0.88
+    m_type: 0
+  - m_name: Magnesium
+    m_atomicNumber: 12
+    m_symbol: Mg
+    m_color: {r: 0.2924528, g: 0.2924528, b: 0.2924528, a: 1}
+    m_weight: 0.87
+    m_type: 0
+  - m_name: Aluminium
+    m_atomicNumber: 13
+    m_symbol: Al
+    m_color: {r: 0.7490196, g: 0.6509804, b: 0.6509804, a: 1}
+    m_weight: 0.85
+    m_type: 0
+  - m_name: Silicon
+    m_atomicNumber: 14
+    m_symbol: Si
+    m_color: {r: 0.9411765, g: 0.78431374, b: 0.627451, a: 1}
+    m_weight: 0.84
+    m_type: 0
+  - m_name: Phosphorous
+    m_atomicNumber: 15
+    m_symbol: P
+    m_color: {r: 1, g: 0.5019608, b: 0, a: 1}
+    m_weight: 0.83
+    m_type: 0
+  - m_name: Sulfur
+    m_atomicNumber: 16
+    m_symbol: S
+    m_color: {r: 1, g: 1, b: 0.1882353, a: 1}
+    m_weight: 0.82
+    m_type: 0
+  - m_name: Chlorine
+    m_atomicNumber: 17
+    m_symbol: Cl
+    m_color: {r: 0.5707547, g: 1, b: 0.5707547, a: 1}
+    m_weight: 0.81
+    m_type: 2
+  - m_name: Argon
+    m_atomicNumber: 18
+    m_symbol: Ar
+    m_color: {r: 0.5019608, g: 0.81960785, b: 0.8901961, a: 1}
+    m_weight: 0.8
+    m_type: 2
+  - m_name: Potasium
+    m_atomicNumber: 19
+    m_symbol: K
+    m_color: {r: 0.38196573, g: 0.31163225, b: 0.4433962, a: 1}
+    m_weight: 0.79
+    m_type: 0
+  - m_name: Calcium
+    m_atomicNumber: 20
+    m_symbol: Ca
+    m_color: {r: 1, g: 1, b: 1, a: 1}
+    m_weight: 0.78
+    m_type: 0
+  - m_name: Scandium
+    m_atomicNumber: 21
+    m_symbol: Sc
+    m_color: {r: 0.9019608, g: 0.9019608, b: 0.9019608, a: 1}
+    m_weight: 0.76
+    m_type: 0
+  - m_name: Titanium
+    m_atomicNumber: 22
+    m_symbol: Ti
+    m_color: {r: 0.7490196, g: 0.7607843, b: 0.78039217, a: 1}
+    m_weight: 0.75
+    m_type: 0
+  - m_name: Vandium
+    m_atomicNumber: 23
+    m_symbol: V
+    m_color: {r: 0.6509804, g: 0.6509804, b: 0.67058825, a: 1}
+    m_weight: 0.74
+    m_type: 0
+  - m_name: Chromium
+    m_atomicNumber: 24
+    m_symbol: Cr
+    m_color: {r: 0.5411765, g: 0.6, b: 0.78039217, a: 1}
+    m_weight: 0.73
+    m_type: 0
+  - m_name: Manganese
+    m_atomicNumber: 25
+    m_symbol: Mn
+    m_color: {r: 0.5939426, g: 0.53395337, b: 0.6698113, a: 1}
+    m_weight: 0.72
+    m_type: 0
+  - m_name: Iron
+    m_atomicNumber: 26
+    m_symbol: Fe
+    m_color: {r: 0.8784314, g: 0.4, b: 0.2, a: 1}
+    m_weight: 0.71
+    m_type: 0
+  - m_name: Cobalt
+    m_atomicNumber: 27
+    m_symbol: Co
+    m_color: {r: 0.3160377, g: 0.7705595, b: 1, a: 1}
+    m_weight: 0.7
+    m_type: 0
+  - m_name: Nickel
+    m_atomicNumber: 28
+    m_symbol: Ni
+    m_color: {r: 0.4433962, g: 0.4433962, b: 0.4433962, a: 1}
+    m_weight: 0.69
+    m_type: 0
+  - m_name: Copper
+    m_atomicNumber: 29
+    m_symbol: Cu
+    m_color: {r: 0.78431374, g: 0.5019608, b: 0.2, a: 1}
+    m_weight: 0.67
+    m_type: 0
+  - m_name: Zinc
+    m_atomicNumber: 30
+    m_symbol: Zn
+    m_color: {r: 0.49019608, g: 0.5019608, b: 0.6901961, a: 1}
+    m_weight: 0.66
+    m_type: 0
+  - m_name: Gallium
+    m_atomicNumber: 31
+    m_symbol: Ga
+    m_color: {r: 0.7607843, g: 0.56078434, b: 0.56078434, a: 1}
+    m_weight: 0.65
+    m_type: 0
+  - m_name: Germanium
+    m_atomicNumber: 32
+    m_symbol: Ge
+    m_color: {r: 0.4, g: 0.56078434, b: 0.56078434, a: 1}
+    m_weight: 0.64
+    m_type: 0
+  - m_name: Arsenic
+    m_atomicNumber: 33
+    m_symbol: As
+    m_color: {r: 0.7411765, g: 0.5019608, b: 0.8901961, a: 1}
+    m_weight: 0.63
+    m_type: 0
+  - m_name: Selenium
+    m_atomicNumber: 34
+    m_symbol: Se
+    m_color: {r: 1, g: 0.6313726, b: 0, a: 1}
+    m_weight: 0.62
+    m_type: 0
+  - m_name: Bromine
+    m_atomicNumber: 35
+    m_symbol: Br
+    m_color: {r: 0.6509804, g: 0.16078432, b: 0.16078432, a: 1}
+    m_weight: 0.61
+    m_type: 2
+  - m_name: Krypton
+    m_atomicNumber: 36
+    m_symbol: Kr
+    m_color: {r: 0.4198113, g: 1, b: 0.70962155, a: 1}
+    m_weight: 0.6
+    m_type: 2
+  - m_name: Rubidium
+    m_atomicNumber: 37
+    m_symbol: Rb
+    m_color: {r: 0.8490566, g: 0.6933962, b: 1, a: 1}
+    m_weight: 0.58
+    m_type: 0
+  - m_name: Stronium
+    m_atomicNumber: 38
+    m_symbol: Sr
+    m_color: {r: 0.52799034, g: 0.990566, b: 0.52799034, a: 1}
+    m_weight: 0.57
+    m_type: 0
+  - m_name: Yttrium
+    m_atomicNumber: 39
+    m_symbol: Y
+    m_color: {r: 0.5803922, g: 1, b: 1, a: 1}
+    m_weight: 0.56
+    m_type: 0
+  - m_name: Zirconium
+    m_atomicNumber: 40
+    m_symbol: Zr
+    m_color: {r: 0.5803922, g: 0.8784314, b: 0.8784314, a: 1}
+    m_weight: 0.55
+    m_type: 0
+  - m_name: Niobium
+    m_atomicNumber: 41
+    m_symbol: Nb
+    m_color: {r: 0.4509804, g: 0.7607843, b: 0.7882353, a: 1}
+    m_weight: 0.54
+    m_type: 0
+  - m_name: Molybdeum
+    m_atomicNumber: 42
+    m_symbol: Mo
+    m_color: {r: 0.32941177, g: 0.70980394, b: 0.70980394, a: 1}
+    m_weight: 0.53
+    m_type: 0
+  - m_name: Technetium
+    m_atomicNumber: 43
+    m_symbol: Tc
+    m_color: {r: 0.23137255, g: 0.61960787, b: 0.61960787, a: 1}
+    m_weight: 0.52
+    m_type: 0
+  - m_name: Ruthenium
+    m_atomicNumber: 44
+    m_symbol: Ru
+    m_color: {r: 0.14117648, g: 0.56078434, b: 0.56078434, a: 1}
+    m_weight: 0.51
+    m_type: 0
+  - m_name: Rhodium
+    m_atomicNumber: 45
+    m_symbol: Rh
+    m_color: {r: 0.039215688, g: 0.49019608, b: 0.54901963, a: 1}
+    m_weight: 0.49
+    m_type: 0
+  - m_name: Palladium
+    m_atomicNumber: 46
+    m_symbol: Pd
+    m_color: {r: 0.3679245, g: 0.3679245, b: 0.3679245, a: 1}
+    m_weight: 0.48
+    m_type: 0
+  - m_name: Silver
+    m_atomicNumber: 47
+    m_symbol: Ag
+    m_color: {r: 0.7529412, g: 0.7529412, b: 0.7529412, a: 1}
+    m_weight: 0.47
+    m_type: 0
+  - m_name: Cadmium
+    m_atomicNumber: 48
+    m_symbol: Cd
+    m_color: {r: 1, g: 0.8509804, b: 0.56078434, a: 1}
+    m_weight: 0.46
+    m_type: 0
+  - m_name: Indium
+    m_atomicNumber: 49
+    m_symbol: In
+    m_color: {r: 0.6509804, g: 0.45882353, b: 0.4509804, a: 1}
+    m_weight: 0.45
+    m_type: 0
+  - m_name: Tin
+    m_atomicNumber: 50
+    m_symbol: Sn
+    m_color: {r: 0.4, g: 0.5019608, b: 0.5019608, a: 1}
+    m_weight: 0.44
+    m_type: 0
+  - m_name: Antinomy
+    m_atomicNumber: 51
+    m_symbol: Sb
+    m_color: {r: 0.61960787, g: 0.3882353, b: 0.70980394, a: 1}
+    m_weight: 0.43
+    m_type: 0
+  - m_name: Tellurium
+    m_atomicNumber: 52
+    m_symbol: Te
+    m_color: {r: 0.7075472, g: 0.5332737, b: 0.29703632, a: 1}
+    m_weight: 0.42
+    m_type: 0
+  - m_name: Iodine
+    m_atomicNumber: 53
+    m_symbol: I
+    m_color: {r: 0.5803922, g: 0, b: 0.5803922, a: 1}
+    m_weight: 0.4
+    m_type: 2
+  - m_name: Xenon
+    m_atomicNumber: 54
+    m_symbol: Xe
+    m_color: {r: 0.25882354, g: 0.61960787, b: 0.6901961, a: 1}
+    m_weight: 0.39
+    m_type: 2
+  - m_name: Caesium
+    m_atomicNumber: 55
+    m_symbol: Cs
+    m_color: {r: 0.34117648, g: 0.09019608, b: 0.56078434, a: 1}
+    m_weight: 0.05
+    m_type: 0
+  - m_name: Barium
+    m_atomicNumber: 56
+    m_symbol: Ba
+    m_color: {r: 0.6179246, g: 1, b: 0.97802544, a: 1}
+    m_weight: 0.37
+    m_type: 0
+  - m_name: Hafnium
+    m_atomicNumber: 72
+    m_symbol: Hf
+    m_color: {r: 0.3019608, g: 0.7607843, b: 1, a: 1}
+    m_weight: 0.19
+    m_type: 0
+  - m_name: Tantalum
+    m_atomicNumber: 73
+    m_symbol: Ta
+    m_color: {r: 0.3019608, g: 0.6509804, b: 1, a: 1}
+    m_weight: 0.18
+    m_type: 0
+  - m_name: Tungsten
+    m_atomicNumber: 74
+    m_symbol: W
+    m_color: {r: 0.12941177, g: 0.5803922, b: 0.8392157, a: 1}
+    m_weight: 0.17
+    m_type: 0
+  - m_name: Rhenium
+    m_atomicNumber: 75
+    m_symbol: Re
+    m_color: {r: 0.14901961, g: 0.49019608, b: 0.67058825, a: 1}
+    m_weight: 0.16
+    m_type: 0
+  - m_name: Osmium
+    m_atomicNumber: 76
+    m_symbol: Os
+    m_color: {r: 0.14901961, g: 0.4, b: 0.5882353, a: 1}
+    m_weight: 0.15
+    m_type: 0
+  - m_name: Iridium
+    m_atomicNumber: 77
+    m_symbol: Ir
+    m_color: {r: 0.09019608, g: 0.32941177, b: 0.5294118, a: 1}
+    m_weight: 0.13
+    m_type: 0
+  - m_name: Platinum
+    m_atomicNumber: 78
+    m_symbol: Pt
+    m_color: {r: 0.8156863, g: 0.8156863, b: 0.8784314, a: 1}
+    m_weight: 0.12
+    m_type: 0
+  - m_name: Gold
+    m_atomicNumber: 79
+    m_symbol: Au
+    m_color: {r: 1, g: 0.81960785, b: 0.13725491, a: 1}
+    m_weight: 0.11
+    m_type: 0
+  - m_name: Mercury
+    m_atomicNumber: 80
+    m_symbol: Hg
+    m_color: {r: 0.72156864, g: 0.72156864, b: 0.8156863, a: 1}
+    m_weight: 0.1
+    m_type: 0
+  - m_name: Thalium
+    m_atomicNumber: 81
+    m_symbol: Tl
+    m_color: {r: 0.6509804, g: 0.32941177, b: 0.3019608, a: 1}
+    m_weight: 0.09
+    m_type: 0
+  - m_name: Lead
+    m_atomicNumber: 82
+    m_symbol: Pb
+    m_color: {r: 0.34117648, g: 0.34901962, b: 0.38039216, a: 1}
+    m_weight: 0.08
+    m_type: 0
+  - m_name: Bismuth
+    m_atomicNumber: 83
+    m_symbol: Bi
+    m_color: {r: 0.61960787, g: 0.30980393, b: 0.70980394, a: 1}
+    m_weight: 0.07
+    m_type: 0
+  - m_name: Polonium
+    m_atomicNumber: 84
+    m_symbol: Po
+    m_color: {r: 0.67058825, g: 0.36078432, b: 0, a: 1}
+    m_weight: 0.06
+    m_type: 0
+  - m_name: Asatine
+    m_atomicNumber: 85
+    m_symbol: At
+    m_color: {r: 0.45882353, g: 0.30980393, b: 0.27058825, a: 1}
+    m_weight: 0.04
+    m_type: 0
+  - m_name: Radon
+    m_atomicNumber: 86
+    m_symbol: Rn
+    m_color: {r: 0.25882354, g: 0.50980395, b: 0.5882353, a: 1}
+    m_weight: 0.03
+    m_type: 2
+  - m_name: Francium
+    m_atomicNumber: 87
+    m_symbol: Fr
+    m_color: {r: 0.25882354, g: 0, b: 0.4, a: 1}
+    m_weight: 0.02
+    m_type: 0
+  - m_name: Radium
+    m_atomicNumber: 88
+    m_symbol: Ra
+    m_color: {r: 0, g: 0.49019608, b: 0, a: 1}
+    m_weight: 0.01
+    m_type: 0
+  - m_name: Uranium
+    m_atomicNumber: 92
+    m_symbol: U
+    m_color: {r: 0.4, g: 1, b: 0.2, a: 1}
+    m_weight: 0.05
+    m_type: 0
+  - m_name: Basalt
+    m_atomicNumber: 92
+    m_symbol: U
+    m_color: {r: 0.5188679, g: 0.5188679, b: 0.5188679, a: 1}
+    m_weight: 20
+    m_type: 0
+  m_csvFile: {fileID: 4900000, guid: 2c0b551bf8985d94c93044f0e6e984d2, type: 3}

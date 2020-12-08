@@ -1,0 +1,5 @@
+If you look closely at the top bars you will notice they don't line up.
+Unfortunatley I believe this is a Unity issue. A bug report has been filed but if anyone
+knows a way around this please get in contact!
+
+This issue is not present in the nGUI version

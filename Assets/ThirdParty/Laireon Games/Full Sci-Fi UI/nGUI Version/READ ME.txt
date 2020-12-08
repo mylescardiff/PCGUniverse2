@@ -1,0 +1,1 @@
+Only unzip these folders if you are using nGUI! If you do make sure to delete the 'UI (uGUI)' folder first.

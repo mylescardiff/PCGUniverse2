@@ -1,0 +1,89 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fea3a1bccf18cd4f90fc992c77aaaea, type: 3}
+  m_Name: Sol
+  m_EditorClassIdentifier: 
+  m_specialSeed: 1
+  m_starType:
+    m_name: 
+    m_surfaceColor:
+      serializedVersion: 2
+      key0: {r: 1, g: 0.92335856, b: 0, a: 0}
+      key1: {r: 1, g: 0.473028, b: 0, a: 1}
+      key2: {r: 0, g: 0, b: 0, a: 1}
+      key3: {r: 0, g: 0, b: 0, a: 0}
+      key4: {r: 0, g: 0, b: 0, a: 0}
+      key5: {r: 0, g: 0, b: 0, a: 0}
+      key6: {r: 0, g: 0, b: 0, a: 0}
+      key7: {r: 0, g: 0, b: 0, a: 0}
+      ctime0: 4241
+      ctime1: 62837
+      ctime2: 0
+      ctime3: 0
+      ctime4: 0
+      ctime5: 0
+      ctime6: 0
+      ctime7: 0
+      atime0: 0
+      atime1: 4626
+      atime2: 61680
+      atime3: 65342
+      atime4: 0
+      atime5: 0
+      atime6: 0
+      atime7: 0
+      m_Mode: 0
+      m_NumColorKeys: 2
+      m_NumAlphaKeys: 4
+    m_coreColor: {r: 1, g: 0.93730223, b: 0, a: 0}
+    m_ejectionColor:
+      serializedVersion: 2
+      key0: {r: 1, g: 0.92335856, b: 0, a: 0}
+      key1: {r: 1, g: 0.473028, b: 0, a: 1}
+      key2: {r: 0, g: 0, b: 0, a: 1}
+      key3: {r: 0, g: 0, b: 0, a: 0}
+      key4: {r: 0, g: 0, b: 0, a: 0}
+      key5: {r: 0, g: 0, b: 0, a: 0}
+      key6: {r: 0, g: 0, b: 0, a: 0}
+      key7: {r: 0, g: 0, b: 0, a: 0}
+      ctime0: 4241
+      ctime1: 62837
+      ctime2: 0
+      ctime3: 0
+      ctime4: 0
+      ctime5: 0
+      ctime6: 0
+      ctime7: 0
+      atime0: 0
+      atime1: 4626
+      atime2: 61680
+      atime3: 65342
+      atime4: 0
+      atime5: 0
+      atime6: 0
+      atime7: 0
+      m_Mode: 0
+      m_NumColorKeys: 2
+      m_NumAlphaKeys: 4
+    m_temperature: 12.34
+    m_abundance: 0.1
+    m_minSize: 200
+    m_maxSize: 300
+  m_planetSettings:
+  - {fileID: 11400000, guid: 190e2933ce080194db29aa5820bfea41, type: 2}
+  - {fileID: 11400000, guid: 9f4eda21cc5921b4aaf9dd0878f86693, type: 2}
+  - {fileID: 11400000, guid: 984832a7ecad62c4990d40e57d2f66ff, type: 2}
+  - {fileID: 11400000, guid: bd0e9f366f9f2884280fb2561deef4af, type: 2}
+  - {fileID: 11400000, guid: 5b5c0a255b03d6c4883be8fe2b50d617, type: 2}
+  - {fileID: 11400000, guid: 6aa9a7bd73f07184e95177f230eacb82, type: 2}
+  - {fileID: 11400000, guid: e4c4d18ef76d5124a9bd116de2ae71c6, type: 2}
+  - {fileID: 11400000, guid: def8fbc49355e164c9d763a873f2c34b, type: 2}

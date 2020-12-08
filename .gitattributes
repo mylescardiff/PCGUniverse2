@@ -1,0 +1,5 @@
+# to change language of repo from Javascript to Python
+*.h linguist-language=C++
+*.cpp linguist-language=C++
+*.py linguist-detectable=false
+*.zip filter=lfs diff=lfs merge=lfs -text

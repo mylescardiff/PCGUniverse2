@@ -1,0 +1,121 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc032d9bf2274f947853f0e9b2299767, type: 3}
+  m_Name: Mars Settings
+  m_EditorClassIdentifier: 
+  m_planetName: Mars
+  m_planetType: 0
+  m_radius: 25.332466
+  m_hasLiquidOcean: 0
+  m_hasLife: 0
+  m_biomes:
+  - m_gradient:
+      serializedVersion: 2
+      key0: {r: 1, g: 1, b: 1, a: 1}
+      key1: {r: 1, g: 1, b: 1, a: 1}
+      key2: {r: 0.3932305, g: 0.11702466, b: 0.7180191, a: 1}
+      key3: {r: 0.22701824, g: 0.16657233, b: 0.50103515, a: 1}
+      key4: {r: 0.274458, g: 0.7979101, b: 0.2387253, a: 1}
+      key5: {r: 0, g: 0, b: 0, a: 0}
+      key6: {r: 0, g: 0, b: 0, a: 0}
+      key7: {r: 0, g: 0, b: 0, a: 0}
+      ctime0: 0
+      ctime1: 65535
+      ctime2: 65535
+      ctime3: 65535
+      ctime4: 65535
+      ctime5: 0
+      ctime6: 0
+      ctime7: 0
+      atime0: 0
+      atime1: 65535
+      atime2: 0
+      atime3: 0
+      atime4: 0
+      atime5: 0
+      atime6: 0
+      atime7: 0
+      m_Mode: 0
+      m_NumColorKeys: 2
+      m_NumAlphaKeys: 2
+    startHeight: 0
+  - m_gradient:
+      serializedVersion: 2
+      key0: {r: 0.59607846, g: 0.25684988, b: 0, a: 1}
+      key1: {r: 0.3207547, g: 0.09251146, b: 0.0015129976, a: 1}
+      key2: {r: 1, g: 1, b: 1, a: 1}
+      key3: {r: 0.8835716, g: 0.37098616, b: 0.09755254, a: 1}
+      key4: {r: 0.51120836, g: 0.47769624, b: 0.9553771, a: 1}
+      key5: {r: 0, g: 0, b: 0, a: 0}
+      key6: {r: 0, g: 0, b: 0, a: 0}
+      key7: {r: 0, g: 0, b: 0, a: 0}
+      ctime0: 0
+      ctime1: 54934
+      ctime2: 65150
+      ctime3: 65535
+      ctime4: 65535
+      ctime5: 0
+      ctime6: 0
+      ctime7: 0
+      atime0: 0
+      atime1: 65535
+      atime2: 0
+      atime3: 0
+      atime4: 0
+      atime5: 0
+      atime6: 0
+      atime7: 0
+      m_Mode: 0
+      m_NumColorKeys: 3
+      m_NumAlphaKeys: 2
+    startHeight: 0.043
+  - m_gradient:
+      serializedVersion: 2
+      key0: {r: 1, g: 1, b: 1, a: 1}
+      key1: {r: 1, g: 1, b: 1, a: 1}
+      key2: {r: 0.27520066, g: 0.40410143, b: 0.27481264, a: 1}
+      key3: {r: 0.8835716, g: 0.37098616, b: 0.09755254, a: 1}
+      key4: {r: 0.51120836, g: 0.47769624, b: 0.9553771, a: 1}
+      key5: {r: 0, g: 0, b: 0, a: 0}
+      key6: {r: 0, g: 0, b: 0, a: 0}
+      key7: {r: 0, g: 0, b: 0, a: 0}
+      ctime0: 0
+      ctime1: 65535
+      ctime2: 65535
+      ctime3: 65535
+      ctime4: 65535
+      ctime5: 0
+      ctime6: 0
+      ctime7: 0
+      atime0: 0
+      atime1: 65535
+      atime2: 0
+      atime3: 0
+      atime4: 0
+      atime5: 0
+      atime6: 0
+      atime7: 0
+      m_Mode: 0
+      m_NumColorKeys: 2
+      m_NumAlphaKeys: 2
+    startHeight: 0.995
+  m_biomeNoiseSettings: {fileID: 11400000, guid: dfca988383481264fbd23ebfb9091460,
+    type: 2}
+  m_biomeNoiseOffset: 0
+  m_biomeNoiseStrength: 1
+  m_biomeBlendAmount: 0.183
+  m_noiseLayers:
+  - {fileID: 11400000, guid: bd6a1da387352084ba3d074d0e4323bf, type: 2}
+  - {fileID: 11400000, guid: dfca988383481264fbd23ebfb9091460, type: 2}
+  m_cloudThickness: 0.5
+  m_thickAtmosphere: 0
+  m_atmoColor: {r: 1, g: 1, b: 1, a: 0}
