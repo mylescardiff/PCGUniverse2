@@ -10,7 +10,6 @@ using UnityEngine;
 
 namespace PcgUniverse2
 {
-
     [System.Serializable]
     public class NameGenerator
     {
@@ -18,7 +17,6 @@ namespace PcgUniverse2
         private static string s_vowells = "aeiou";
 
         [SerializeField, Range(0.01f, 1f)] private float m_sylableChanceReduction = 0.4f;
-        [SerializeField, Range(0f, 1f)] private float m_chanceOfNewWord = 0.5f;
         [SerializeField, Range(0f, 1f)] private float m_chanceOfNewSylable = 0.8f;
 
         private string m_state = "";
@@ -32,8 +30,6 @@ namespace PcgUniverse2
 
             m_state = "SS";
             float roll = Random.value;
-            if (roll < m_chanceOfNewWord)
-                m_state += " SS";
 
             while (NextGeneration())
             {
@@ -44,7 +40,6 @@ namespace PcgUniverse2
             string temp = m_state;
             m_state = char.ToUpper(temp[0]).ToString();
             m_state += temp.Substring(1, temp.Length - 1);
-
 
             string returnValue = m_state;
 
@@ -95,7 +90,6 @@ namespace PcgUniverse2
 
             return false;
         }
-
 
         public void Reset()
         {

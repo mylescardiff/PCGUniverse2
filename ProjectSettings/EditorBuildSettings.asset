@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/scene_Startup/scene_Persistent.unity
+    path: Assets/Scenes/scene_Startup/scene_Startup.unity
     guid: b6a746936944c68438421c2b51f43f0f
   - enabled: 1
     path: Assets/Scenes/scene_Title/scene_Title.unity
@@ -26,4 +26,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Scene_Planet/Scene_Planet.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/scene_Win1/scene_Win.unity
+    guid: 52f12e45b176c07408cd29f0755a03d2
+  - enabled: 1
+    path: Assets/Scenes/scene_Lose/scene_Lose.unity
+    guid: 0cd8be1ce139be044afdc7330485a4f1
   m_configObjects: {}

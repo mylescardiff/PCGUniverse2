@@ -31,6 +31,7 @@ namespace PcgUniverse2
             kAsteroid
         }
 
+        #region Tunables
 
         [Header("Planet Settings")]
         [SerializeField]
@@ -61,8 +62,6 @@ namespace PcgUniverse2
         private PlanetSettings m_planetSettings;
         public PlanetSettings planetSettings { get => m_planetSettings; set => m_planetSettings = value; }
 
-        [SerializeField] private GameObject m_cloudSphere = null;
-
         [Header("UI")]
         [SerializeField] private Text m_planetNameText = null;
         [SerializeField] private Text m_geoReadout = null;
@@ -74,62 +73,66 @@ namespace PcgUniverse2
         [SerializeField] private float m_approachSpeed = 200f;
         [SerializeField] private float m_approachModifier = 3f;
 
-        private float m_cameraVelocity = 0f;
-        private float m_minCameraDistance = 30f;
-        private bool m_onApproach = true;
-        private float m_approachDistance = 300f;
+        [SerializeField] private Material m_planetMaterial = null;
+        [SerializeField] private Material m_thinAtmoMaterial = null;
+        [SerializeField] private Material m_thickAtmoMaterial = null;
+        [SerializeField] private GameObject m_cloudSphere = null;
 
-        /// <summary>
-        /// The following items are used in planet generation to hold texture, height and color
-        /// data for use in the Randomize() and GeneratePlanet() functions
-        /// </summary>
+        // hidden serialized fields
         [SerializeField, HideInInspector]
         private MeshFilter[] m_meshFilters;
         [SerializeField, HideInInspector]
         private TerrainFace[] m_terrainFaces;
-        [SerializeField]
-        private Material m_planetMaterial = null;
         [SerializeField, HideInInspector]
         private Texture2D m_texture;
+
+        #endregion
+
+        #region Private Non-Serialized Data
+
+        private MainUI m_mainUi = null;
         private MinMax m_elevationMinMax;
         private Color m_primaryAtmoColor;
         private Color m_secondaryAtmoColor;
-        
-        [SerializeField] private Material m_thinAtmoMaterial = null;
-        [SerializeField] private Material m_thickAtmoMaterial = null;
+        private float m_cameraVelocity = 0f;
+        private float m_minCameraDistance = 30f;
+        private bool m_onApproach = true;
+        private float m_approachDistance = 300f;
+        private GameManager m_gameManager = null;
+        private Randomizer m_randomizer = null;
 
-        public class MeshData
-        {
-            public Vector3[] m_vertices;
-            public int[] m_triangles;
-            public Vector2[] m_uvs;
-        }
+        #endregion
 
-        private void Start()
+        /// <summary>
+        /// Loads teh game manager and other global objects needed for generation later
+        /// </summary>
+        private void Awake()
         {
-            GameManager gm = GameManager.GetInstance();
-            if (m_seed == 0 && gm != null)
+            m_randomizer = GameObject.FindObjectOfType<RandomizerComponent>().m_randomizer;
+            m_gameManager = GameManager.GetInstance();
+
+            m_gameManager.UpdateUI();
+
+            if (m_seed == 0 && m_gameManager != null)
             {
-                m_seed = gm.lastPlanetSeed;
-                m_planetSettings = gm.lastPlanetSettings;
+                m_seed = m_gameManager.lastPlanetSeed;
+                m_planetSettings = m_gameManager.lastPlanetSettings;
                 Random.InitState(m_seed);
                 m_resolution = 255;
 
-               
-
-                if (!gm.knownSystemDict.ContainsKey(gm.lastSystemSeed))
+                if (!m_gameManager.knownSystemDict.ContainsKey(m_gameManager.lastSystemSeed))
                 {
                     // this is not a known systems, it needs to randomize still
-                    GenerateBasics(m_seed, gm.lastOrbitDistance, gm.lastStarType);
-               
+                    GenerateBasics(m_seed, m_gameManager.lastOrbitDistance, m_gameManager.lastStarType);
                     GenerateDetail();
                 }
                 else
                 {
+                    // this is a known system, just set the atmo color based on the settings
                     m_secondaryAtmoColor = m_planetSettings.atmoColor;
-                    m_primaryAtmoColor = Color.white; 
+                    m_primaryAtmoColor = Color.white;
                 }
-             
+
                 GeneratePlanet();
             }
 
@@ -139,7 +142,14 @@ namespace PcgUniverse2
             // approach 
             if (m_planetSettings != null)
                 m_approachDistance = m_planetSettings.radius * m_approachModifier;
-            
+
+            // get UI elements
+            m_mainUi = GameObject.FindObjectOfType<MainUI>();
+
+            GameplayEvent triggeredEvent = m_gameManager.TriggerEvent();
+            if (triggeredEvent)
+                m_mainUi.ShowMessage(triggeredEvent.m_description);
+
         }
 
         /// <summary>
@@ -163,8 +173,8 @@ namespace PcgUniverse2
 
             m_orbitDistance = orbitDistance;
 
-            Randomizer randomizer = GameObject.FindObjectOfType<RandomizerComponent>().m_randomizer;
-            if (randomizer == null)
+
+            if (m_randomizer == null)
             {
                 Debug.LogError("There needs to be a a RandomizerComponent loaded into memory to generate anything.");
                 return;
@@ -212,22 +222,22 @@ namespace PcgUniverse2
                 // ocean and life
                 m_planetSettings.hasLiquidOcean = m_orbitDistance >= habitableZoneStart && m_orbitDistance < habitableZoneEnd;
 
-                m_planetSettings.radius = Random.Range(randomizer.m_rockyMinSize, randomizer.m_rockyMaxSize);
+                m_planetSettings.radius = Random.Range(m_randomizer.m_rockyMinSize, m_randomizer.m_rockyMaxSize);
 
-                m_planetSettings.m_noiseLayers[0].Randomize(randomizer.m_rockyLandmassMinNoise, randomizer.m_rockyLandmassMaxNoise);
-                m_planetSettings.m_noiseLayers[1].Randomize(randomizer.m_rockyMountiansMinNoise, randomizer.m_rockyMountiansMaxNoise);
+                m_planetSettings.m_noiseLayers[0].Randomize(m_randomizer.m_rockyLandmassMinNoise, m_randomizer.m_rockyLandmassMaxNoise);
+                m_planetSettings.m_noiseLayers[1].Randomize(m_randomizer.m_rockyMountiansMinNoise, m_randomizer.m_rockyMountiansMaxNoise);
 
                 if (m_planetSettings.hasLiquidOcean)
                 {
                     float lifeRoll = Random.Range(0f, 1f);
-                    m_planetSettings.hasLife = lifeRoll < randomizer.m_chanceOfLife;
+                    m_planetSettings.hasLife = lifeRoll < m_randomizer.m_chanceOfLife;
                 }
                 else
                 {
                     m_planetSettings.hasLife = false;
-                    m_planetSettings.m_noiseLayers[0].minValue = randomizer.m_nonOceanFloorLevel;
+                    m_planetSettings.m_noiseLayers[0].minValue = m_randomizer.m_nonOceanFloorLevel;
                 }
-               
+
                 m_planetSettings.m_biomeNoiseSettings.strength = Random.Range(0.3f, 0.6f);
                 m_planetSettings.m_biomeNoiseStrength = Random.Range(0.3f, 0.6f);
 
@@ -238,14 +248,14 @@ namespace PcgUniverse2
                 m_planetSettings.hasLife = false;
                 m_planetSettings.hasLiquidOcean = false;
 
-                m_planetSettings.radius = Random.Range(randomizer.m_gasGiantMinSize, randomizer.m_gasGiantMaxSize);
+                m_planetSettings.radius = Random.Range(m_randomizer.m_gasGiantMinSize, m_randomizer.m_gasGiantMaxSize);
 
                 // we don't need any landmass or noise settings for gas giants, just biomes, and generally more of them
                 m_planetSettings.m_noiseLayers[0].m_enabled = false;
                 m_planetSettings.m_noiseLayers[1].m_enabled = false;
 
                 // gas layers
-                m_planetSettings.m_biomeNoiseStrength = Random.Range(randomizer.m_gasGiantBiomeNoiseStrengthMin, randomizer.m_gasGiantBiomeNoiseStrengthMax);
+                m_planetSettings.m_biomeNoiseStrength = Random.Range(m_randomizer.m_gasGiantBiomeNoiseStrengthMin, m_randomizer.m_gasGiantBiomeNoiseStrengthMax);
                 m_planetSettings.m_biomeNoiseSettings.strength = Random.Range(0.1f, 0.4f);
 
                 numBiomes = Random.Range(1, 20);
@@ -261,6 +271,9 @@ namespace PcgUniverse2
         /// </summary>
         public void GenerateDetail()
         {
+            // done here because only this loads when they really get to a planet
+            m_gameManager.turn++;
+
             Randomizer randomizer = GameObject.FindObjectOfType<RandomizerComponent>().m_randomizer;
             if (randomizer == null)
             {
@@ -349,8 +362,8 @@ namespace PcgUniverse2
             else
             {
                 int numAtmosElements = Random.Range(0, 12);
-                
-              
+
+
                 for (int i = 0; i < numAtmosElements; i++)
                 {
 
@@ -369,13 +382,13 @@ namespace PcgUniverse2
 
                 m_planetSettings.thickAtmosphere = Random.Range(0f, 1f) < randomizer.m_chanceOfThickAtmos;
                 m_planetSettings.cloudThickness = Random.Range(randomizer.m_minCloudThickness, randomizer.m_maxCloudThickness);
-                
-               
+
+
 
             }
 
 
-         
+
 
         }
 
@@ -557,8 +570,6 @@ namespace PcgUniverse2
                 {
                     m_cloudSphere.transform.localScale = new Vector3(atmosphereHeight, atmosphereHeight, atmosphereHeight);
 
-
-
                     Material atmosMat;
                     if (m_planetSettings.thickAtmosphere)
                     {
@@ -574,7 +585,7 @@ namespace PcgUniverse2
 
                     }
 
-                   
+
                     atmosMat.SetFloat("_secondaryNoiseScale", m_planetSettings.cloudThickness);
 
                     m_cloudSphere.GetComponent<MeshRenderer>().material = atmosMat;
@@ -651,7 +662,7 @@ namespace PcgUniverse2
                 m_onApproach = false;
 
             if (m_onApproach)
-                m_cameraVelocity = m_approachSpeed; 
+                m_cameraVelocity = m_approachSpeed;
 
             Vector3 towardsObject = (transform.position - m_camera.transform.position).normalized;
             Vector3 movement = towardsObject * m_cameraVelocity * Time.deltaTime;
@@ -665,10 +676,37 @@ namespace PcgUniverse2
             }
         }
 
+        /// <summary>
+        /// Show or hide the cloud layer for a better view of the planet surface.
+        /// </summary>
         public void ToggleAtmosphere()
         {
             Debug.Log("Atmosphere Toggled");
             m_cloudSphere.SetActive(!m_cloudSphere.activeSelf);
+        }
+
+        /// <summary>
+        /// Consumes any resources from the planet
+        /// </summary>
+        public void MinePlanet()
+        {
+            Debug.Log("Planet Mined");
+
+            int amount = 0;
+            if (m_planetSettings.planetType == EPlanetType.kRocky)
+                amount = m_gameManager.AddFood(this);
+            else
+                amount = m_gameManager.AddFuel(this);
+            if (amount > 0)
+            {
+                m_mainUi.ShowMessage($"You have mined {amount} metric tons of resouces\n your supply has grown.");
+            }
+            else
+            {
+                m_mainUi.ShowMessage("This planet has already been stripped of collectable resources.");
+            }
+
+        
         }
     }
 

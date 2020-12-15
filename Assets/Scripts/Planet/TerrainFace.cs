@@ -13,6 +13,16 @@ namespace PcgUniverse2
 /// </summary>
 public class TerrainFace
 {
+    /// <summary>
+    /// Hold the mesh information for each terrain face, 
+    /// </summary>
+    public class MeshData
+    {
+        public Vector3[] m_vertices;
+        public int[] m_triangles;
+        public Vector2[] m_uvs;
+    }
+
     private Planet m_planet;
     private Mesh m_mesh;
     private int m_resolution;
@@ -41,7 +51,7 @@ public class TerrainFace
     /// </summary>
     public void ConstructMesh()
     {
-        Planet.MeshData meshData = new Planet.MeshData();
+        MeshData meshData = new MeshData();
 
         // set up the raw data for the mesh
         meshData.m_vertices = new Vector3[m_resolution * m_resolution];

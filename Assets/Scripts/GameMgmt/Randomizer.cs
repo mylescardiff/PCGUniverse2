@@ -70,6 +70,8 @@ namespace PcgUniverse2
 
         public float m_nonOceanFloorLevel = 0.5f;
 
+        [Header("Gameplay"), Range(0, 1)]
+        public float m_chanceOfGameplayEvent = 0.1f;
 
     }
 

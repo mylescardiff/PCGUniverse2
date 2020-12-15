@@ -9,20 +9,21 @@ namespace PcgUniverse2
 	/// </summary>
 	public class StarNode
 	{
-		public GalaxyStar m_star;
-		public List<StarNode> m_linkedNodes;
+		private GalaxyStar m_star = null;
+		public GalaxyStar star { get => m_star; set => m_star = value; }
+
+		public List<StarNode> m_linkedNodes = null;
 
 		public StarNode(GalaxyStar star)
 		{
 			m_star = star;
 			m_linkedNodes = new List<StarNode>();
+			star.node = this;
 		}
-
 	}
 
-	public class StarGraph : MonoBehaviour
+	public class StarGraph
 	{
-
 		private StarNode m_rootNode;
 		public StarNode rootNode { get => m_rootNode; set => m_rootNode = value; }
 
@@ -46,10 +47,6 @@ namespace PcgUniverse2
 			from.m_linkedNodes.Add(to);
 			to.m_linkedNodes.Add(from);
 		}
-
-
-	
-
 	}
 
 }

@@ -56,6 +56,7 @@ namespace PcgUniverse2
             if (m_gameManager != null)
             {
                 m_seed = m_gameManager.lastSystemSeed;
+                m_gameManager.UpdateUI();
                 GeneratePlanets();
             }
 
@@ -230,14 +231,12 @@ namespace PcgUniverse2
             // set position & Parent
             planetGameObject.transform.position = Vector3.right * orbitDistance;
             planetGameObject.transform.parent = transform.parent;
-            planetGameObject.transform.RotateAround(Vector3.zero, Vector3.up, Random.Range(0f, 40f));
+            planetGameObject.transform.RotateAround(Vector3.zero, Vector3.up, Random.Range(0f, 360f));
 
             DrawCircle(orbitDistance, m_lineMaterial);
 
             return planetComponent;
         }
-
-     
 
       
 

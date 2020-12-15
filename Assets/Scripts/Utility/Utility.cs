@@ -50,6 +50,16 @@ namespace PcgUniverse2
 
             return grad;
         }
+
+        /// <summary>
+        /// Randomly shuffles a list of any type
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="list"></param>
+        public static void ShuffleList<T>(List<T> list)
+        {
+            list = list.OrderBy(x => System.Guid.NewGuid()).ToList();
+        }
     }
 
 }

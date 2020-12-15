@@ -28,8 +28,8 @@ Material:
     - _noiseScale: 0.2
     - _pushOut: 8.17
     - _scrollSpeed: 0.3
-    - _secondaryNoiseScale: 0.5
+    - _secondaryNoiseScale: 0.2269666
     - _smoothness: 0
     m_Colors:
     - _primaryColor: {r: 1, g: 1, b: 1, a: 1}
-    - _secondaryColor: {r: 1, g: 1, b: 1, a: 0}
+    - _secondaryColor: {r: 0.31372556, g: 0.4929676, b: 0.8784314, a: 1}

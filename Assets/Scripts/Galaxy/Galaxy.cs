@@ -4,7 +4,7 @@
 // Disclaimer: Got some help on the math of the spiral from here: http://wiki.unity3d.com/index.php/Particle_Spiral_Effect
 // ------------------------------------------------------------------------------
 
-using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,12 +16,13 @@ namespace PcgUniverse2
 	/// </summary>
 	public class Galaxy : MonoBehaviour
 	{
-		
+		[Header("Galaxy")]
 		[SerializeField] private Material m_starMaterial = null;
 		[SerializeField] private Material m_graphLineMaterial = null;
 		[SerializeField] private ParticleSystem m_particleSystem = null;
 		[SerializeField] private CosmicBodyUI m_cosmicBodyUI = null;
-		[SerializeField] private Cinemachine.CinemachineVirtualCamera m_camera;
+		[SerializeField] private Transform m_positionIndicatorUI = null;
+		[SerializeField] private CinemachineVirtualCamera m_camera;
 
 		[Header("Camera")]
 		[SerializeField] private Transform m_cameraFocus = null;
@@ -37,11 +38,14 @@ namespace PcgUniverse2
 		private void Start()
 		{
 			m_gameManager = GameManager.GetInstance();
+			m_gameManager.UpdateUI();
+
 			Transform starParent = GameObject.FindGameObjectWithTag("Galaxy").transform;
 
 			for (int i = 0; i < m_gameManager.sectors.Count; ++i)
             {
 				GalaxySector sector = m_gameManager.sectors[i];
+
                 // instantiate particle system and have the number and density fall off as we get further from the center
                 ParticleSystem particleSystem = Instantiate(m_particleSystem, sector.center, Quaternion.identity);
                 ParticleSystem.MainModule mainMod = particleSystem.GetComponent<ParticleSystem>().main;
@@ -53,6 +57,9 @@ namespace PcgUniverse2
                 // spawn game objects for the stars already genereated and create references to them 
                 foreach (GalaxyStar galaxyStar in sector.stars)
 				{
+					if (!galaxyStar.discovered)
+						continue;
+
 					GameObject star = GameObject.CreatePrimitive(PrimitiveType.Sphere);
 					star.transform.parent = starParent;
 					GalaxyStarComp starComp = star.AddComponent<GalaxyStarComp>();
@@ -72,14 +79,23 @@ namespace PcgUniverse2
 			}
 
 			// put the camera near sol
-			m_cameraFocus.position = m_gameManager.centerStarNode.m_star.position;
+			m_cameraFocus.position = m_gameManager.lastStarVisited.position;
 			m_camera.ForceCameraPosition(m_cameraFocus.position, Quaternion.identity);
+
+
+			// set the 
+			m_positionIndicatorUI.position = m_gameManager.lastStarVisited.position;
 
 			
 			for (int i = 0; i < m_gameManager.sectors.Count - 1; ++i)
             {
+
 				GalaxySector fromSector = m_gameManager.sectors[i];
 				GalaxySector toSector = m_gameManager.sectors[i + 1];
+
+				if (!toSector.centerStar.discovered)
+					continue;
+
 				GameObject sector = new GameObject("Sector " + i);
 
 				// lines
@@ -117,19 +133,33 @@ namespace PcgUniverse2
 
 			if (Input.GetKeyDown(KeyCode.Return) && !m_isUnloading)
 			{
-				GameManager gameManager = GameManager.GetInstance();
-				gameManager.lastSystemSeed = m_lastClickedStar.seed;
+				// expend fuel, if necessary
+				if (m_lastClickedStar != m_gameManager.lastStarVisited)
+					m_gameManager.FlyToSystem();
 
-				if (gameManager == null)
+				// remember what was clicked on
+				m_gameManager.lastSystemSeed = m_lastClickedStar.seed;
+				m_gameManager.lastStarVisited = m_lastClickedStar;
+
+				// enter solar system command recieved, set discovered so it shows next time
+				m_lastClickedStar.discovered = true;
+				foreach (StarNode neighbor in m_lastClickedStar.node.m_linkedNodes)
+                {
+					neighbor.star.discovered = true;
+                }
+
+				if (m_gameManager == null)
 					return;
 
-
-				gameManager.LoadScene(GameManager.ESceneIndex.kSolarSystem, true);
+				m_gameManager.LoadScene(GameManager.ESceneIndex.kSolarSystem, true);
 				m_isUnloading = true;
 			}
 		}
 		
-
+		/// <summary>
+		/// Set the focus 
+		/// </summary>
+		/// <param name="starObject"></param>
 		private void SetFocusStar(GalaxyStarComp starObject)
         {
 			m_nameLabel.text = starObject.galaxyStar.name;
@@ -137,7 +167,6 @@ namespace PcgUniverse2
             m_cosmicBodyUI.objectName = starObject.galaxyStar.name;
             m_cosmicBodyUI.transform.position = starObject.transform.position;
             m_cosmicBodyUI.transform.SetParent(starObject.transform);
-			
 
 			m_lastClickedStar = starObject.galaxyStar;
         }

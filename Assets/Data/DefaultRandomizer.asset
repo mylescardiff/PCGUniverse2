@@ -15,7 +15,6 @@ MonoBehaviour:
   m_elementColorDb: {fileID: 11400000, guid: 3f41d5330610b2247ab79c0bbf2e7ebd, type: 2}
   m_nameGenerator:
     m_sylableChanceReduction: 0.368
-    m_chanceOfNewWord: 0.623
     m_chanceOfNewSylable: 0.756
   m_starTypes:
   - m_name: Main Sequence
@@ -357,3 +356,4 @@ MonoBehaviour:
   m_gasGiantBiomeNoiseStrengthMin: 0.5
   m_gasGiantBiomeNoiseStrengthMax: 0.6
   m_nonOceanFloorLevel: 0.5
+  m_chanceOfGameplayEvent: 1
