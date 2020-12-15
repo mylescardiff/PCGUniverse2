@@ -12,4 +12,16 @@ This project is still under construction as of 12/7/2020, so check back soon for
 
 ## Runnning the Project
 
-Lorem Ipsum...
+Open /Assets/Scenes/scene_Startup/scene_Startup.unity. This scene contains some overall gameplay tunables and some persistent objects necessary for the game to work. 
+
+## Scenes
+
+There are three main scenes in the game:
+
+- Galaxy
+- Solar System
+- Planet
+
+You'll find code folders for each of these under the /Assets/Scripts/ folder. Each scene has a code file with a matching name that governs the mechanics in that scene. 
+
+There is a persistent scene in scene_Startup that has a single script, GameManager.cs. That manages the actual galaxy data, because that needs to be present in all the scenes to manage game flow. 
