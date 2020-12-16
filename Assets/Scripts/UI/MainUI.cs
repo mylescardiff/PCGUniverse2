@@ -11,9 +11,7 @@ namespace PcgUniverse2
         [SerializeField] private Text m_dialogText = null;
         [SerializeField] private Text m_fuelLabel = null;
         [SerializeField] private Text m_foodLabel = null;
-
-
-      
+        [SerializeField] private GameObject m_textOutputBase = null;
 
         public void ShowMessage(string messageText)
         {
@@ -21,7 +19,6 @@ namespace PcgUniverse2
                 return;
 
             m_dialogText.text = messageText;
-
             m_dialogBox.SetActive(true);
 
         }
